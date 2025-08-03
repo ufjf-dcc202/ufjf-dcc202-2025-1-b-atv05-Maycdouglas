@@ -1,7 +1,7 @@
 import { getTabuleiro, selecionaDisco } from "./discos.js";
 
 const eH1 = document.querySelector("h1");
-eH1.textContent = "Jogo de Discos";
+eH1.textContent = "Jogo - Inverter Peças";
 
 const eTabuleiro = criaTabuleiro();
 atualizaTabuleiro();
