@@ -16,7 +16,7 @@ function criaTabuleiro() {
 function criaDisco(cor, posicao) {
   const novoDisco = document.createElement("div");
   novoDisco.classList.add("disco");
-  novoDisco.classList.add(cor);
+  novoDisco.classList.cor = cor;
   novoDisco.dataset.posicao = posicao;
   return novoDisco;
 }
