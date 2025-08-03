@@ -5,6 +5,40 @@ export function getTabuleiro() {
   return [...tabuleiro];
 }
 
+export function selecionaDisco(posicao) {
+  if (posicaoDiscoSelecionado == null) {
+    if (!validaSelecaoOrigem(posicao)) {
+      console.log(`Seleção inválida na posição: ${posicao}`);
+      return;
+    }
+    posicaoDiscoSelecionado = posicao;
+    console.log(`Disco selecionado na posição: ${posicao}`);
+  } else {
+    if (!validaSelecaoDestino(posicao)) {
+      console.log(`Movimento inválido para a posição: ${posicao}`);
+      return;
+    }
+    if (posicao === posicaoDiscoSelecionado) {
+      console.log(`Disco na posição ${posicao} já está selecionado.`);
+      posicaoDiscoSelecionado = null;
+      return;
+    }
+    mover(posicaoDiscoSelecionado, posicao);
+    console.log(`Disco movido de ${posicaoDiscoSelecionado} para ${posicao}`);
+    posicaoDiscoSelecionado = null;
+  }
+}
+
+function mover(origem, destino) {
+  if (!validaMovimento(origem, destino)) {
+    console.error(`Movimento inválido de ${origem} para ${destino}`);
+    return;
+  }
+
+  tabuleiro[destino] = tabuleiro[origem];
+  tabuleiro[origem] = "";
+}
+
 function validaMovimento(origem, destino) {
   if (
     origem < 0 ||
