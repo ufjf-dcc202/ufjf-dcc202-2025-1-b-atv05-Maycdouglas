@@ -24,7 +24,7 @@ function criaDisco(cor, posicao) {
 function cliqueDisco(evento) {
   const posicao = Number(evento.target.dataset.posicao);
   selecionaDisco(posicao);
-  atualizaTabuleiro;
+  atualizaTabuleiro();
 }
 
 function atualizaTabuleiro() {
